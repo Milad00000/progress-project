@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<style type="text/css">
+			* {
+				border-box: box-sizing;
+			}
+			body {
+				margin: 0;
+			}
+			section {
+				height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 100%;
+				max-width: 100%;
+			}
+			section:first-child {
+				background: #aaa;
+			}
+			section:nth-child(2) {
+				background: #bbb;
+			}
+			section:nth-child(3) {
+				background: #ccc;
+			}
+			section:nth-child(4) {
+				background: #eee;
+			}
+			.progress {
+				position: relative;
+				width: 700px;
+				max-width: 100%;
+				height: 30px;
+				background: white;
+				margin: 10px;
+			}
+			/* small */
+			@media (min-width:412px) {
+				.progress {
+					width:352px
+				}
+			}
+			/* mediume */
+			@media (min-width: 768px) {
+				.progress {
+					width: 700px;
+				}
+			}
+			
+			.progress span {
+				position: absolute;
+				left: 0;
+				top: 0;
+				height: 100%;
+				background: indianred;
+				transition: width .3s linear;
+				width: ;
+			}
+		</style>
+	</head>
+	<body>
+		<section class="one">Section One</section>
+		<section class="two">Section Two</section>
+		<section class="three">
+			<div class="skills">
+				<h3>HTML</h3>
+				<div class="progress">
+					<span style="width: 0" data-width="80%"></span>
+				</div>
+				<h3>Css</h3>
+				<div class="progress">
+					<span style="width: 0" data-width="90%"></span>
+				</div>
+				<h3>Js</h3>
+				<div class="progress">
+					<span style="width: 0" data-width="100%"></span>
+				</div>
+				<h3>Scala</h3>
+				<div class="progress">
+					<span style="width: 0" data-width="50%"></span>
+				</div>
+			</div>
+		</section>
+		<section class="four">Section Four</section>
+		<script type="text/javascript">
+			let spans = document.querySelectorAll(".progress span");
+			let three = document.querySelector(".three");
+			
+			window.onscroll = function () {
+				if (scrollY >= three.offsetTop - 100) {
+					spans.forEach((span) => {
+						span.style.width = span.dataset.width;
+					})
+				}
+			}
+			
+		</script>
+	</body>
+</html>
